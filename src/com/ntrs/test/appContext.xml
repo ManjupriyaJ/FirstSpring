@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+   xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+<bean id="addr" class="com.ntrs.test.Address">  
+<constructor-arg value="Chennai"></constructor-arg>
+<constructor-arg value="TN"></constructor-arg>
+<constructor-arg value="IND"></constructor-arg> 
+</bean>  
+
+<bean id="emp" class="com.ntrs.test.Employee">  
+<!-- If you don't specify the <constructor-arg type="">, By default it will consider it as String
+ and call the String parameter type constructor. To refer to other primitive parameter types, 
+ U should give it in 'type' parameter -->
+<constructor-arg value="316879" type="int"></constructor-arg>
+<constructor-arg value="Manju"></constructor-arg>
+<!-- name attribute is optional for constructor-arg element -->
+<constructor-arg name="address" ref="addr"></constructor-arg> 
+</bean> 
+  
+</beans>  
